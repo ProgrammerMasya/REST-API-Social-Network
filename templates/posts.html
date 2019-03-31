@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="container">
+
+  <hr class="col-md-12">
+    <h1>Home</h1>
+    {% if request.user.is_authenticated %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.post }}
+      <br>
+        <button type="submit">Post</button>
+    </form>
+    {% endif %}
+  <hr>
+  <p></p>
+    {% for post in posts %}
+        <p>Posted by {{ post.user.get_full_name }} on {{ post.created}}:</p>
+        <h2>{{ post.post }}</h2>
+          <p>Likes:{{ post.likes }} Dislikes {{ post.dislikes }}</p>
+        {% if request.user.is_authenticated %}
+        <form action="{% url 'like' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button>
+        </form>
+        <form action="{% url 'dislike' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-danger">Dislike</button>
+        </form>
+        {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

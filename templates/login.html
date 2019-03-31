@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<h3 class='text-center'>Авторизация</h3>
+<hr>
+    <div class='col-sm-8 col-sm-offset-2 text-center'>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <p></p>
+        <input type="submit" class="btn" value="Войти в систему">
+    </form>
+    </div>
+
+
+{% endblock body %}

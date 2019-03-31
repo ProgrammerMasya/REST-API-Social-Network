@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+<h3 class="text-center">Регистрация нового пользователя</h3>
+    <div class="col-sm-8 col-sm-offset-2">
+    <hr>
+    <form class="text-center" action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+    </div>
+
+{% endblock body %}
