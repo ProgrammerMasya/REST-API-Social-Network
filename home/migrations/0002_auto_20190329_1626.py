@@ -5,19 +5,17 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('home', '0001_initial'),
-    ]
+    dependencies = [("home", "0001_initial")]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='dislikes',
-            field=models.IntegerField(default=0, verbose_name='Не нравится'),
+            model_name="post",
+            name="dislikes",
+            field=models.IntegerField(default=0, verbose_name="Не нравится"),
         ),
         migrations.AddField(
-            model_name='post',
-            name='likes',
-            field=models.IntegerField(default=0, verbose_name='Нравится'),
+            model_name="post",
+            name="likes",
+            field=models.IntegerField(default=0, verbose_name="Нравится"),
         ),
     ]

@@ -5,13 +5,6 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('home', '0007_dislike'),
-    ]
+    dependencies = [("home", "0007_dislike")]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='post',
-            name='updated',
-        ),
-    ]
+    operations = [migrations.RemoveField(model_name="post", name="updated")]
